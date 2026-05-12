@@ -109,7 +109,6 @@ create table receipts (
   original_extraction jsonb,
   reviewed_data jsonb,
   confidence_score numeric(4, 2),
-  image_url text,
   notes text,
   created_at timestamp with time zone default now()
 );
