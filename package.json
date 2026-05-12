@@ -1,5 +1,5 @@
 {
-  "name": "receiptflow-ai",
+  "name": "receipt-data-extractor",
   "version": "0.1.0",
   "private": true,
   "scripts": {

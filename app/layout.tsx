@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ReceiptFlow AI",
+  title: "Receipt Data Extractor",
   description: "Extract receipt details into editable forms with Gemini AI."
 };
 

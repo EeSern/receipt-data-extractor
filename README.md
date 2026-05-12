@@ -1,6 +1,6 @@
-# ReceiptFlow AI
+# Receipt Data Extractor
 
-ReceiptFlow AI is a Next.js web app that uses Gemini to extract key receipt information and auto-fill an editable review form.
+Receipt Data Extractor is a Next.js web app that uses Gemini to extract key receipt information and auto-fill an editable review form.
 
 ## Features
 

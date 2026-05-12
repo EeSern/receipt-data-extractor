@@ -117,7 +117,7 @@ export default function Home() {
       <header className="border-b border-[var(--line)] bg-[#fffefa]/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
           <Link href="/" className="text-lg font-black tracking-tight">
-            ReceiptFlow AI
+            Receipt Data Extractor
           </Link>
           <Link
             href="/history"
