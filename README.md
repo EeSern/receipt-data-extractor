@@ -47,6 +47,7 @@ Prompt summary:
 Extract merchantName, date, totalAmount, and currency from the receipt image.
 Return structured JSON only.
 Use ISO date format where possible.
+Use the current date as context when the receipt date is missing a year or is ambiguous.
 Use the final payable amount, not subtotal, tax, change, or cash received.
 Use 3-letter ISO currency codes.
 Return null for unclear fields and lower confidence.

@@ -1,7 +1,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { extractionSchema } from "@/lib/validation";
 
-export const receiptExtractionPrompt = `You are an AI receipt extraction assistant.
+export function createReceiptExtractionPrompt(currentDate: string) {
+  return `You are an AI receipt extraction assistant.
+
+Current date: ${currentDate}
 
 Extract these fields from the receipt image:
 1. merchantName
@@ -12,6 +15,9 @@ Extract these fields from the receipt image:
 Rules:
 - Return only JSON that matches the response schema.
 - Use ISO date format YYYY-MM-DD where possible.
+- Use the current date only as context for interpreting ambiguous receipt dates. Do not replace a visible receipt date with the current date.
+- If the receipt date omits the year, infer the most plausible year using the current date and mention that inference in extractionNotes.
+- If the date remains ambiguous, return null or lower confidence instead of guessing.
 - totalAmount must be the final payable amount, not subtotal, tax, change, or cash received.
 - currency must be a 3-letter ISO currency code such as MYR, USD, SGD, JPY, or EUR.
 - RM usually means MYR. S$ usually means SGD.
@@ -25,6 +31,7 @@ Rules:
 - Use confidence below 0.60 when user review is required.
 - Include confidence scores from 0 to 1 for each field. Confidence means visual evidence quality, not general likelihood.
 - Include a short note explaining where the total was found.`;
+}
 
 export async function extractReceiptWithGemini(file: File) {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -43,7 +50,7 @@ export async function extractReceiptWithGemini(file: File) {
       {
         role: "user",
         parts: [
-          { text: receiptExtractionPrompt },
+          { text: createReceiptExtractionPrompt(new Date().toISOString().slice(0, 10)) },
           {
             inlineData: {
               mimeType: file.type,
