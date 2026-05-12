@@ -11,6 +11,8 @@ export type ReceiptExtraction = {
   totalAmount: number | null;
   currency: string | null;
   confidence: ConfidenceMap;
+  imageQuality: "clear" | "partially_readable" | "blurry_or_unclear";
+  needsReview: boolean;
   extractionNotes: string;
 };
 

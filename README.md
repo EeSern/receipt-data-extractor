@@ -50,6 +50,7 @@ Use ISO date format where possible.
 Use the final payable amount, not subtotal, tax, change, or cash received.
 Use 3-letter ISO currency codes.
 Return null for unclear fields and lower confidence.
+Cap confidence when the receipt is blurry, cropped, or difficult to read.
 Include confidence scores from 0 to 1 and a short note explaining where the total was found.
 ```
 
@@ -63,6 +64,8 @@ Example structured response:
   "date": "2026-05-10",
   "totalAmount": 42.5,
   "currency": "MYR",
+  "imageQuality": "clear",
+  "needsReview": false,
   "confidence": {
     "merchantName": 0.94,
     "date": 0.88,

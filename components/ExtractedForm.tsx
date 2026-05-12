@@ -109,6 +109,12 @@ export function ExtractedForm({ extraction, onSubmit, isSubmitting }: ExtractedF
         </div>
       ) : null}
 
+      {extraction?.needsReview ? (
+        <div className="rounded-md border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+          This extraction needs review. Image quality: {extraction.imageQuality.replaceAll("_", " ")}.
+        </div>
+      ) : null}
+
       <button
         type="submit"
         disabled={!extraction || isSubmitting}

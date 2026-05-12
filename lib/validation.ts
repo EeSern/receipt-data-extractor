@@ -18,6 +18,8 @@ export const extractionSchema = z.object({
     totalAmount: 0,
     currency: 0
   }),
+  imageQuality: z.enum(["clear", "partially_readable", "blurry_or_unclear"]).default("partially_readable"),
+  needsReview: z.boolean().default(true),
   extractionNotes: z.string().trim().default("")
 });
 
