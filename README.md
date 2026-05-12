@@ -55,6 +55,24 @@ Include confidence scores from 0 to 1 and a short note explaining where the tota
 
 The full prompt is in `lib/gemini.ts`.
 
+Example structured response:
+
+```json
+{
+  "merchantName": "Guardian",
+  "date": "2026-05-10",
+  "totalAmount": 42.5,
+  "currency": "MYR",
+  "confidence": {
+    "merchantName": 0.94,
+    "date": 0.88,
+    "totalAmount": 0.91,
+    "currency": 0.97
+  },
+  "extractionNotes": "The final payable amount was found near the bottom of the receipt."
+}
+```
+
 ## Local Setup
 
 ```bash
